@@ -1,11 +1,11 @@
 <template>
     <!-- eslint-disable  -->
     <div class="index">
-        <Searchbar></Searchbar>
+        <Searchbar :isInTop="isInTop"></Searchbar>
         <BannerSwiper></BannerSwiper>
         <IconsSwiper></IconsSwiper>
         <Countdown></Countdown>
-        <New></New>
+        <NewUser></NewUser>
         <Courtyard></Courtyard>
         <Everyday></Everyday>
         <Recommend></Recommend>
@@ -19,7 +19,7 @@ import Searchbar from "./Searchbar"
 import BannerSwiper from "./BannerSwiper"
 import IconsSwiper from "./IconsSwiper"
 import Countdown from "./Countdown"
-import New from "./New"
+import NewUser from "./NewUser"
 import Courtyard from "./Courtyard"
 import Everyday from "./Everyday"
 import Recommend from "./Recommend"
@@ -32,11 +32,28 @@ export default {
         BannerSwiper,
         IconsSwiper,
         Countdown,
-        New,
+        NewUser,
         Courtyard,
         Everyday,
-                Recommend,
+        Recommend,
         NavBottom
+    },
+    data: function () {
+        return {
+            isInTop: true
+        }
+    },
+    mounted: function () {
+        // 滚动过程中实现title底色变化的效果
+        document.addEventListener('scroll', () => {
+            if (document.documentElement.scrollTop > 20) {
+                if (this.isInTop === true) {
+                    this.isInTop = false
+                    }
+            } else {
+                if (this.isInTop === false) this.isInTop = true
+            }
+        })
     }
 };
 </script>

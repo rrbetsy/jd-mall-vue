@@ -1,5 +1,5 @@
 <template>
-    <div class="new">
+    <div class="new-user">
         <a href="https://h5.m.jd.com/babelDiy/Zeus/3TF5zx1uKaXie125DCh3jU4sYWUy/index.html#/">
             <img src="//m.360buyimg.com/mobilecms/s376x240_jfs/t1/37103/7/7876/115887/5ccff8bfE320f1d7b/147aad3576c76277.png!q70.jpg.dpg">
         </a>
@@ -11,16 +11,14 @@
 
 <script>
 export default {
-    name:'New',
-    data () {
-        return {}
-    },
+    name: 'NewUser'
 }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!--Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='less'>
-.new {
+.new-user {
     display: flex;
+    overflow: hidden;
     justify-content: center;
     a {
         img {

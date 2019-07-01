@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import {
+    Tab,
+    TabPanel,
+    Tabbar,
     Searchbar,
     Navbar,
     Dialog,
@@ -9,7 +12,8 @@ import {
     ButtonGroup,
     Badge,
     Price,
-    Countdown
+    Countdown,
+    TextInput
 } from '@nutui/nutui'
 
 import Router from 'vue-router'
@@ -17,6 +21,7 @@ import Index from '@/pages/index/Index'
 import Category from '@/pages/category/Category'
 import ShopCart from '@/pages/shop-cart/ShopCart'
 import MyInfo from '@/pages/my-info/MyInfo'
+import Login from '@/pages/login/Login'
 
 Vue.use(Router)
 // 引入需要用的京东组件
@@ -30,6 +35,10 @@ ButtonGroup.install(Vue)
 Badge.install(Vue)
 Countdown.install(Vue)
 Price.install(Vue)
+Tab.install(Vue)
+TabPanel.install(Vue)
+Tabbar.install(Vue)
+TextInput.install(Vue)
 
 export default new Router({
     routes: [
@@ -39,19 +48,24 @@ export default new Router({
             component: Index
         },
         {
-            path: './category',
+            path: '/category',
             name: 'category',
             component: Category
         },
         {
-            path: './shopCart',
+            path: '/shopCart',
             name: 'shopCart',
             component: ShopCart
         },
         {
-            path: './myInfo',
+            path: '/myInfo',
             name: 'myInfo',
             component: MyInfo
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
         }
     ]
 })

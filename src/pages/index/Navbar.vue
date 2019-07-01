@@ -1,8 +1,8 @@
 <template>
   <div class="nut-navbar">
-    <nut-navbar 
-    @on-click-back="back" 
-    @on-click-title="title" 
+    <nut-navbar
+    @on-click-back="back"
+    @on-click-title="title"
     @on-click-more="more">
       NavBar3
       <a slot="back-icon">返回</a>
@@ -36,5 +36,8 @@ export default {
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang='less'>
+.nut-navbar{
+
+}
 </style>

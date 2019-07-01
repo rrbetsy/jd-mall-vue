@@ -33,19 +33,19 @@ export default {
             dataImgItem: [
                 {
                     imgSrc:
-                        "//m.360buyimg.com/mobilecms/s750x366_jfs/t1/18629/34/3378/144318/5c263f64Ef0e2bff0/0d650e0aa2e852ee.jpg"
+                        "//imgcps.jd.com/ling4/4938552/54mb5aW25Lmz5ZOB54m55Y2W/5paw5qy-55u06ZmN/p-5c13869682acdd181deefedf/9cf5ecc2/cr_1125x549_0_72/s1125x690/q70.jpg"
                 },
                 {
                     imgSrc:
-                        "//m.360buyimg.com/mobilecms/s750x366_jfs/t1/26597/30/4870/174583/5c35c5d2Ed55eedc6/50e27870c25e7a82.png"
+                        "//m.360buyimg.com/mobilecms/s750x366_jfs/t1/73882/21/1179/95457/5cf63648E9b3220e4/3a9cfd61213976f1.jpg!cr_1125x549_0_72!q70.jpg.dpg"
                 },
                 {
                     imgSrc:
-                        "//m.360buyimg.com/mobilecms/s750x366_jfs/t1/9542/17/12873/201687/5c3c4362Ea9eb757d/60026b40a9d60d85.jpg"
+                        "//m.360buyimg.com/mobilecms/s750x366_jfs/t1/20589/32/6460/118373/5c52506cEa08ccedb/0254cba485b06d16.jpg!cr_1125x549_0_72!q70.jpg.dpg"
                 },
                 {
                     imgSrc:
-                        "//m.360buyimg.com/mobilecms/s750x366_jfs/t1/30042/36/427/82951/5c3bfdabE3faf2f66/9adca782661c988c.jpg"
+                        "//m.360buyimg.com/mobilecms/s750x366_jfs/t1/36425/18/13387/173153/5d134619E0249abfe/123710b155e960b7.jpg!cr_1125x549_0_72!q70.jpg.dpg"
                 }
             ]
         };
@@ -53,5 +53,11 @@ export default {
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang='less'>
+.banner-swiper{
+    img{
+        width: 100%;
+        height: 200px;
+    }
+}
 </style>

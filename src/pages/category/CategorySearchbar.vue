@@ -1,6 +1,6 @@
 <template>
-    <div :class="['searchbar',isInTop?'':'fixed']">
-        <div class="to-category">
+    <div class="category-searchbar">
+        <div class="back" @click="back">
             <div class="line"></div>
         </div>
         <div class="search">
@@ -8,25 +8,18 @@
             <!-- <nut-searchbar
                 placeText="扫地机器人  智能"
                 :hasSearchButton="false"
-            ></nut-searchbar> -->
+            ></nut-searchbar>    -->
         </div>
-        <div class="login" @click="goLogin">登录</div>
+        <div class="dotted"></div>
+        <div class="dotted"></div>
+        <div class="dotted"></div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Searchbar',
-    props: {
-        isInTop: {
-            type: Boolean,
-            default: true
-        }
-    },
+    name: 'CategorySearchbar',
     methods: {
-        goLogin(){
-            location.hash = '#/login'
-        },
         focusFun () {
             console.log('获取焦点操作！')
         },
@@ -42,15 +35,19 @@ export default {
             console.log(value)
             console.log('默认提交操作！')
         }
+    },
+    methods:{
+        back(){
+            history.back();
+        }
     }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='less'>
-.white {
-    background-color: #e93b3d;
-}
-.searchbar {
+
+.category-searchbar {
+    background: #fff;
     display: flex;
     position: fixed;
     align-items: center;
@@ -58,20 +55,16 @@ export default {
     left: 0;
     z-index: 10;
     width: 100%;
-    height: 45px;
-    &.fixed {
-        background: #e4393c;
-    }
-    .to-category {
-        margin-left: 15px;
-        width: 20px;
-        height: 14px;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        .line {
-            margin-top: 6px;
-            border-top: 2px solid white;
-        }
+    height: 44px;
+    border-bottom: 1px solid #ececf0;
+    .back {
+        margin-left: 18px;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #252525;
+        border-left: 2px solid #252525;
+        opacity: 0.5;
+        transform: rotate(45deg);
     }
     .search {
         position: relative;
@@ -80,25 +73,13 @@ export default {
         font-family: "-apple-system,Helvetica,sans-serif";
         font-size: 12px;
         color: #666;
-        margin: 0 15px 0 20px;
+        margin: 0 10px 0 10px;
         border-radius: 15px;
-        background: #fff;
-        width: 71%;
+        background: #f7f7fa;
+        width: 329px;
         height: 30px;
         .nut-searchbar .search-input input {
             padding: 5px 0 !important;
-        }
-        .search-text {
-            width: 20px;
-            // height: 15px;
-            background-size: 20px 15px;
-            margin-left: 15px;
-            position: relative;
-            z-index: 1;
-            font-size: 18px;
-            font-weight: 545;
-            font-family: "-apple-system,Helvetica,sans-serif";
-            color: #e4393c;
         }
         .search-icon {
             margin-left: 5px;
@@ -109,16 +90,19 @@ export default {
                 no-repeat;
             background-position: -80px 0;
             background-size: 200px;
-            margin-left: 10px;
+            margin-left: 15px;
             position: relative;
             z-index: 1;
         }
     }
-    .login {
+    .dotted {
         display: inline-block;
-        margin: 10px 0;
-        color: #fff;
-        font-size: 14px;
+        width: 3px;
+        height: 3px;
+        border-radius: 100%;
+        background-color: #252525;
+        opacity: 0.7;
+        margin-right: 5px;
     }
 }
 </style>
