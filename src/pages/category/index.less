@@ -1,3 +1,18 @@
 .nut-tab {
     padding: 0;
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease-in-out;
+  opacity: 1;
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+}
+@keyframes  imgShow{
+    from {
+        opacity: 0;
+    }
+    to{
+         opacity: 1;
+    }
+}
