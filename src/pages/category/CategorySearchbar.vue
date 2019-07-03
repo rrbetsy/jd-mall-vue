@@ -1,6 +1,9 @@
 <template>
     <div class="category-searchbar">
-        <div class="back" @click="back">
+        <div
+            class="back"
+            @click="back"
+        >
             <div class="line"></div>
         </div>
         <div class="search">
@@ -34,18 +37,15 @@ export default {
         submitFun (value) {
             console.log(value)
             console.log('默认提交操作！')
-        }
-    },
-    methods:{
-        back(){
-            history.back();
+        },
+        back () {
+            history.back()
         }
     }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='less'>
-
 .category-searchbar {
     background: #fff;
     display: flex;

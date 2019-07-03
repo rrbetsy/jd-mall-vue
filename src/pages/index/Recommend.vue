@@ -9,7 +9,6 @@
             >
                 <img
                     :src="item.imgUrl"
-                    alt
                 />
                 <p class="main-title">{{item.title}}</p>
                 <div class="item-bottom">
@@ -30,8 +29,7 @@
 <script>
 /* eslint-disable */
 export default {
-    name: "Recommend",
-    components: {},
+    name: 'Recommend',
     data () {
         return {
             recommendItems: [

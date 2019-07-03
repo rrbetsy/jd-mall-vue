@@ -21,7 +21,6 @@
                             <img
                                 v-if="active"
                                 :src="subItem.imageUrl"
-                                alt=""
                             >
                         </transition>
                         <span>{{subItem.keyword}}</span>
@@ -38,14 +37,14 @@ export default {
     name: 'CategoryList',
     props: {
         keywordList: {
-            type: Array,
-            default: []
+            type: Array
+            // default: []
         },
         active: {
             type: Boolean,
             default: false
         }
-    },
+    }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -71,7 +70,7 @@ export default {
             img {
                 width: 70px;
                 height: 70px;
-                animation: imgShow .3s ease-in-out;
+                animation: imgShow 0.3s ease-in-out;
                 // opacity: 1;
             }
 

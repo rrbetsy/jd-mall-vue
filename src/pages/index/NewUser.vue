@@ -17,13 +17,24 @@ export default {
 <!--Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='less'>
 .new-user {
+    border-radius: 6px;
+    margin-right: 10px;
+    margin-left: 10px;
     display: flex;
     overflow: hidden;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     a {
-        img {
-            width: 194px;
-            height: 131px;
+        width: 100%;
+        height: 100%;
+        display: block;
+        text-decoration: none;
+        & img {
+            width: 178px;
+            height: 120px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            overflow: hidden;
         }
     }
 }

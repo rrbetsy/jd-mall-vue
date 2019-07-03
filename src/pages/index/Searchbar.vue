@@ -4,13 +4,17 @@
             <div class="line"></div>
         </div>
         <div class="search">
+            <div class="search-text">JD</div>
             <div class="search-icon"></div>
             <!-- <nut-searchbar
                 placeText="扫地机器人  智能"
                 :hasSearchButton="false"
             ></nut-searchbar> -->
         </div>
-        <div class="login" @click="goLogin">登录</div>
+        <div
+            class="login"
+            @click="goLogin"
+        >登录</div>
     </div>
 </template>
 
@@ -24,7 +28,7 @@ export default {
         }
     },
     methods: {
-        goLogin(){
+        goLogin () {
             location.hash = '#/login'
         },
         focusFun () {
@@ -80,10 +84,10 @@ export default {
         font-family: "-apple-system,Helvetica,sans-serif";
         font-size: 12px;
         color: #666;
-        margin: 0 15px 0 20px;
+        margin: 0 14px 0 16px;
         border-radius: 15px;
         background: #fff;
-        width: 71%;
+        width: 74%;
         height: 30px;
         .nut-searchbar .search-input input {
             padding: 5px 0 !important;
@@ -95,8 +99,8 @@ export default {
             margin-left: 15px;
             position: relative;
             z-index: 1;
-            font-size: 18px;
-            font-weight: 545;
+            font-size: 17px;
+            font-weight: 550;
             font-family: "-apple-system,Helvetica,sans-serif";
             color: #e4393c;
         }

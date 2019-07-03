@@ -39,7 +39,7 @@
             </router-link>
             <a href="https://wqs.jd.com/pingou/index.shtml?sceneval=2&fromM=1&ptag=138097.1.17"><img src="https://img11.360buyimg.com/jdphoto/s130x100_jfs/t1/75691/7/2686/3970/5d106e75Ee420adf7/cb4579470ee8ca22.png"></a>
             <router-link to="./shopCart"><img src="https://m.360buyimg.com/mobilecms/jfs/t18583/69/717127328/4407/5e47882b/5aa10ceaN649eec12.png"></router-link>
-            <router-link to="./myInfo"> <img src="https://m.360buyimg.com/mobilecms/jfs/t17782/11/2358895717/4684/ad19de7f/5af43af1N04ef5a16.png">
+            <router-link to="./login"> <img src="https://m.360buyimg.com/mobilecms/jfs/t17782/11/2358895717/4684/ad19de7f/5af43af1N04ef5a16.png">
             </router-link>
         </div>
     </div>
