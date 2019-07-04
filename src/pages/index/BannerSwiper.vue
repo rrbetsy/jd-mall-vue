@@ -8,6 +8,7 @@
             :loop="true"
             :canDragging="false"
             :paginationVisible="true"
+            :autoPlay="3000"
         >
             <div
                 v-for="(item,index) in dataImgItem"
@@ -28,6 +29,10 @@
 export default {
     name: 'BannerSwiper',
     components: {},
+    mounted () {
+        setTimeout(() => {
+            this.$refs.demo4.updateEvent()
+        }, 300)    },
     data () {
         return {
             dataImgItem: [
@@ -54,8 +59,8 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='less'>
-.banner-swiper{
-    img{
+.banner-swiper {
+    img {
         width: 100%;
         height: 200px;
     }

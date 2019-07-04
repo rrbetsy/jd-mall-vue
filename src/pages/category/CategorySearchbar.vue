@@ -4,14 +4,10 @@
             class="back"
             @click="back"
         >
-            <div class="line"></div>
         </div>
         <div class="search">
             <div class="search-icon"></div>
-            <!-- <nut-searchbar
-                placeText="扫地机器人  智能"
-                :hasSearchButton="false"
-            ></nut-searchbar>    -->
+           <input type="text" placeholder="电脑">
         </div>
         <div class="dotted"></div>
         <div class="dotted"></div>
@@ -78,8 +74,8 @@ export default {
         background: #f7f7fa;
         width: 329px;
         height: 30px;
-        .nut-searchbar .search-input input {
-            padding: 5px 0 !important;
+         input {
+            margin-left: 10px;
         }
         .search-icon {
             margin-left: 5px;

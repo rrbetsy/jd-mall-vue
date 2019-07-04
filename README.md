@@ -1,14 +1,14 @@
 # jd-mall-vue
 
-> 仿京东商城移动端的vue项目
+>仿京东商城移动端的vue项目
 主要包括主页面、分类页面、购物车界面和登录界面和用户页面
-1. 使用vue-cli脚手架，以webpack为模板构建项目
-2. 使用NutUI移动端Vue组件库，在vue全局注册引入的组件
-3. 使用less设置样式，eslint规范代码格式
+1. 使用vue-cli脚手架构建单页项目
+2. 使用京东NutUI移动端Vue组件库，vue全局注册并按需引入组件
+3. 使用less开发样式，eslint规范代码格式
 4. 使用flex实现页面复杂布局
 
 ## 首页
->主要包括顶部的搜索栏，图片左右滑动，秒杀倒计时，商品列表
+>主要包括顶部的搜索栏，自动轮播图，图片左右滑动，秒杀倒计时，商品列表
 
 （1）顶部搜索栏滚动时固定在视口顶部，且背景颜色发生变化。方法是使用`position:fixed`固定搜索栏，添加滚动事件，获取文档滚动高度，一定高度后改变背景颜色，此过程中改变状态赋值的优化，使赋值操作只进行一次
 
@@ -25,9 +25,9 @@
 
 （1）分开左右两边的商品选项列表
 
-（2）分别用v-for遍历获取的数组数据
+（2）分别用`v-for`遍历获取的数组数据
 
-（3）v-if渲染选中的二级商品选项列表
+（3）`v-if`渲染选中的二级商品选项列表
 
 ## 拼购
 
@@ -40,18 +40,30 @@
 
 （2） 输入内容后，登录按钮可以点击，加载至用户界面
 
-（3） 使用border-radius设置曲面
+（3） 使用`border-radius`设置曲面
 ## 效果图
 主页面
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/index.jpg?raw=true)
+![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/index.jpg?raw=true){:height="100%" width="375px"}
 
 主页面的商品列表
 
+![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/shopInfo-page.jpg?raw=true){:height="100%" width="375px"}
+
+![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/shopInfo.jpg?raw=true){:height="100%" width="375px"}
+
 分类页面
+
+![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/category-page.jpg?raw=true)
 
 登录页面
 
+![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/login-page.jpg?raw=true)
+
 激活登录页面
 
+![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/login-light.jpg?raw=true)
+
 用户页面
+
+![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/user-page.jpg?raw=true)

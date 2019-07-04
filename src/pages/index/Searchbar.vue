@@ -1,15 +1,15 @@
 <template>
     <div :class="['searchbar',isInTop?'':'fixed']">
-        <div class="to-category">
+        <div class="to-category" @click="toCategory">
             <div class="line"></div>
         </div>
         <div class="search">
             <div class="search-text">JD</div>
-            <div class="search-icon"></div>
-            <!-- <nut-searchbar
-                placeText="扫地机器人  智能"
-                :hasSearchButton="false"
-            ></nut-searchbar> -->
+            <div class="search-icon" @click="clickHandle"></div>
+            <input
+                placeholder="无线鼠标"
+                @click="clickHandle"
+            >
         </div>
         <div
             class="login"
@@ -31,20 +31,11 @@ export default {
         goLogin () {
             location.hash = '#/login'
         },
-        focusFun () {
-            console.log('获取焦点操作！')
+        clickHandle () {
+
         },
-        inputFun (value) {
-            console.log(value)
-            console.log('您正在输入...')
-        },
-        blurFun (value) {
-            console.log(value)
-            console.log('您已失去焦点！')
-        },
-        submitFun (value) {
-            console.log(value)
-            console.log('默认提交操作！')
+        toCategory(){
+            location.hash = '#/category'
         }
     }
 }
@@ -84,7 +75,7 @@ export default {
         font-family: "-apple-system,Helvetica,sans-serif";
         font-size: 12px;
         color: #666;
-        margin: 0 14px 0 16px;
+        margin: 0 9px 0 16px;
         border-radius: 15px;
         background: #fff;
         width: 74%;
@@ -116,6 +107,9 @@ export default {
             margin-left: 10px;
             position: relative;
             z-index: 1;
+        }
+        input {
+            margin-left: 10px;
         }
     }
     .login {

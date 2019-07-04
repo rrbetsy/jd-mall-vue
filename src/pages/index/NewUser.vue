@@ -22,12 +22,11 @@ export default {
     margin-left: 10px;
     display: flex;
     overflow: hidden;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     a {
         width: 100%;
         height: 100%;
-        display: block;
         text-decoration: none;
         & img {
             width: 178px;
