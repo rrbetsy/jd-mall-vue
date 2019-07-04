@@ -44,26 +44,26 @@
 ## 效果图
 主页面
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/index.jpg?raw=true){:height="100%" width="375px"}
+<img src="https://github.com/rrbetsy/jd-mall-vue/raw/master/images/index.jpg?raw=true" width = "375" height = "100%">
 
 主页面的商品列表
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/shopInfo-page.jpg?raw=true){:height="100%" width="375px"}
+<img src="https://github.com/rrbetsy/jd-mall-vue/raw/master/images/shopInfo-page.jpg?raw=true" width = "375" height = "100%">
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/shopInfo.jpg?raw=true){:height="100%" width="375px"}
+<img src="https://github.com/rrbetsy/jd-mall-vue/raw/master/images/shopInfo.jpg?raw=true" width = "375" height = "100%">
 
 分类页面
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/category-page.jpg?raw=true)
+<img src="https://github.com/rrbetsy/jd-mall-vue/raw/master/images/category-page.jpg?raw=true" width = "375" height = "100%">
 
 登录页面
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/login-page.jpg?raw=true)
+<img src="https://github.com/rrbetsy/jd-mall-vue/raw/master/images/login-page.jpg?raw=true" width = "375" height = "100%">
 
 激活登录页面
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/login-light.jpg?raw=true)
+<img src="https://github.com/rrbetsy/jd-mall-vue/raw/master/images/login-light.jpg?raw=true" width = "375" height = "100%">
 
 用户页面
 
-![](https://github.com/rrbetsy/jd-mall-vue/raw/master/images/user-page.jpg?raw=true)
+<img src="https://github.com/rrbetsy/jd-mall-vue/raw/master/images/user-page.jpg?raw=true" width = "375" height = "100%">
