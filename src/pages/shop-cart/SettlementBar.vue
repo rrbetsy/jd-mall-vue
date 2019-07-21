@@ -8,11 +8,11 @@
             <div class="total-price">
                 <p class="total">总计：</p>
                 <div class="price">
-                    ￥<span>{{price}}</span>
+                    ￥<span>{{parseFloat(totalPrice).toFixed(2)}}</span>
                 </div>
             </div>
-            <div class="to-settlement">
-                去结算(<span>{{number}}</span>件)
+            <div :class="['to-settlement',totalNum>0?'products-selected':'']">
+                去结算(<span>{{totalNum}}</span>件)
             </div>
         </div>
     </div>
@@ -22,22 +22,27 @@
 /* eslint-disable */
 export default {
     name: 'SettlementBar',
+    props: {
+        totalPrice: Number,
+        totalNum: Number,
+        selectAllItem:Boolean,
+    },
     data () {
         return {
-            price: '0.00',
-            number: 0,
-            selectedOrNot: Boolean,
+            price: this.totalPrice,
+            number: this.totalNum,
             default: false
         }
     },
     computed: {
         selectIcon () {
-            return ['icon-select', this.selectedOrNot ? '' : 'selected']
+            return ['icon-select', !this.selectAllItem ? '' : 'selected']
         }
     },
     methods: {
         selected () {
-            return this.selectedOrNot = !this.selectedOrNot
+            this.$emit('update:selectAllItem', !this.selectAllItem)
+            // this.$emit('update:selectAll',!this.selectedOrNot)
         }
     }
 };
@@ -109,9 +114,9 @@ export default {
             margin-left: 10px;
             font-size: 16px;
             font-weight: 700;
-        }
-        &.products-selected {
-            background: #e4393c;
+            &.products-selected {
+                background: #e4393c;
+            }
         }
     }
 }

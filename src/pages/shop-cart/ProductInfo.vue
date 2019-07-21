@@ -7,7 +7,8 @@
             >
                 <div class="product">
                     <div
-                        :class="['icon-select', !item.selected ? '' : 'selected']" @click="selectItem(index)"
+                        :class="['icon-select', !item.selected ? '' : 'selected']"
+                        @click="selectItem(index)"
                     ></div>
                     <img :src="item.imgUrl">
                     <div class="goods">
@@ -38,16 +39,17 @@
                         <div class="price-stepper ">
                             <div class="goods-price">
                                 <i class="price-icon">￥</i>
-                                <span class="price">{{item.price}}</span>
-                                <i class="price-icon">{{item.priceDot}}</i>
+                                <span class="price">{{parseInt(item.price)}}.</span>
+                                <i class="price-icon">{{getPriceDot(item.price)}}</i>
                             </div>
                             <div class="stepper">
                                 <nut-stepper
                                     :value.sync="item.selectNum"
                                     :transition="true"
                                     :simple="false"
-                                    :min="1"
+                                    :min="0"
                                     :max="999"
+                                    @change="(val)=>numChange(index,val)"
                                 ></nut-stepper>
                             </div>
                         </div>
@@ -68,99 +70,95 @@ export default {
     components: {
         ProductAttr
     },
-    // computed: {
-    //     selectIcon () {
-    //         return
-    //     }
-    // },
+    props: {
+        totalPrice: Number,
+        totalNum: Number,
+        selectAllItem: Boolean
+    },
     data () {
         return {
-            selectedOrNot: Boolean,
-            default: false,
-            defVal: 0,
             actionSheetShow: {
             },
             showDetail: false,
-            productItems: [
-                {
-                    imgUrl: '//img10.360buyimg.com/mobilecms/s117x117_jfs/t27616/251/1425719819/224805/20c2401e/5bc831fdN61f8d9d2.jpg!q70.dpg.webp',
-                    name: 'vivo Z3 6GB+64GB 极光蓝 性能实力派 全面屏游戏手机 移动联通电信全网通4G手机',
-                    attr: '0.425kg/件，极光蓝，6GB+64GB',
-                    price: '1248.',
-                    priceDot: '00',
-                    selected: false,
-                    selectNum: 1
-                },
-                {
-                    imgUrl: '//img10.360buyimg.com/n4/jfs/t1/58748/3/4030/192293/5d1c96fdE48ab9ad9/f7300d8229815101.jpg',
-                    name: 'Apple iPad 平板电脑 2018年新款9.7英寸（128G WLAN版/A10 芯片/Retina显示屏 MR7K2CH/A）银色',
-                    attr: '0.84kg/件，银色，WIFI版128G',
-                    price: '3177.',
-                    selectNum: 1,
-                    selected: false,
-                    priceDot: '00',
-                },
-                {
-                    imgUrl: '//img10.360buyimg.com/mobilecms/s117x117_jfs/t1/29213/11/14211/274689/5ca56202Ec28b53c8/7fe5eb4a5571177d.jpg!q70.dpg.webp',
-                    name: '城南旧事',
-                    attr: '城南旧事',
-                    selectNum: 1,
-                    selected: false,
-                    price: '31.',
-                    priceDot: '10',
-                },
-                {
-                    imgUrl: '//img10.360buyimg.com/mobilecms/s117x117_jfs/t22720/73/1034241904/151911/8d39c1a7/5b4da4fdN7639b927.jpg!q70.dpg.webp',
-                    name: '浮生六记（无删减彩色插图珍藏本）',
-                    attr: '0.3kg/件，浮生六记',
-                    selectNum: 1,
-                    selected: false,
-                    price: '34.',
-                    priceDot: '80',
-                },
-                {
-                    imgUrl: '//img10.360buyimg.com/mobilecms/s117x117_jfs/t1/33790/26/4365/156233/5cb70b7dE61f2a717/5c0fc02565770b6b.jpg!q70.dpg.webp',
-                    name: '原色派 苹果ipad pro 10.5保护套蓝牙键盘带笔槽新款ipad2018键盘air2皮套9.7 【钢琴灰皮套+白色键盘】 2018新ipad/pro9.7/air1/2通用',
-                    attr: '【钢琴灰皮套+白色键盘】，2018新ipad/pro9.7/air1/2通用',
-                    selectNum: 1,
-                    selected: false,
-                    price: '128.',
-                    priceDot: '00',
-                }
-            ],
+            productItems: [],
             selectItems: {
                 // 所有选中的内容
             }
         }
     },
+    watch:{
+        selectAllItem:function(newVal){
+            // 全选或者全部取消
+            console.log("selectAllItem==",newVal);
+            const newItems = this.productItems.map(function(item,index){
+                const {selected,selectNum} = item;
+                item.selectNum=selected==false&&selectNum==0?1:selectNum
+                item.selected = newVal
+                return item
+            });
+            this.productItems=newItems;
+            this.calculator();
+        }
+    },
     methods: {
         selectItem (index) {
-            console.log(index)
+            const {selected,selectNum} = this.productItems[index]
             const newItem = Object.assign({},
                 this.productItems[index],
                 {
-                    selected: !this.productItems[index].selected
+                    selected: !selected,
+                    selectNum:selected==false&&selectNum==0?1:selectNum
                 });
             this.$set(this.productItems, index, newItem)
+            this.calculator()
         },
-        selectItemsss () {
-            return this.selectedOrNot = !this.selectedOrNot;
+        numChange (index, val) {
+            const newItem = Object.assign({},
+                this.productItems[index],
+                {
+                    selected: val>=1
+                });
+            this.$set(this.productItems, index, newItem)
+            this.calculator()
         },
+        // selectItemsss () {
+        //     return this.selectedOrNot = !this.selectedOrNot;
+        // },
         switchActionSheet (key) {
             console.log(key)
             this.$set(this.actionSheetShow, key, !this.actionSheetShow[`${key}`])
+        },
+        getPriceDot (price) {
+            return parseFloat(price).toFixed(2).split('.')[1];
         },
         initCalculator () {
 
         },
         calculator () {
-
+            let totalPrice = 0;
+            let totalNum = 0;
+            //
+            this.productItems.forEach(function (item, index) {
+                if (item.selected === true) {
+                    totalNum = parseInt(item.selectNum) + totalNum;
+                    totalPrice = totalPrice + item.price * item.selectNum
+                }
+            }
+            )
+            console.log("totalPrice==", totalPrice)
+            console.log("totalNum==", totalNum)
+            this.$emit('update:totalPrice', totalPrice)
+            this.$emit('update:totalNum', totalNum)
         }
     },
     async created () {
         try {
-            const cartData = await axios.get('http://localhost:3000/shop-cart/all');
-            console.log('cartData', cartData)
+            const {data} = await axios.get('http://localhost:3000/shop-cart/all');
+            // const {data} = await axios.get('http://localhost:3000/shop-cart/all');
+            if(data.code ===200){
+                this.productItems = data.data;
+            }
+            console.log('cartData', data)
         } catch (e) {
             console.log(e)
         }
@@ -173,6 +171,7 @@ export default {
 .product-info {
     width: 100%;
     background: #fff;
+    padding-bottom: 30px;
     .product {
         display: flex;
         width: 100%;
@@ -208,7 +207,7 @@ export default {
     .goods {
         margin-left: 10px;
         overflow: hidden;
-        // flex: 1;
+        flex: 1;
         .name {
             position: relative;
             font-size: 14px;
@@ -226,6 +225,8 @@ export default {
             width: 237px;
             height: 25px;
             line-height: 25px;
+            display: inline-flex;
+            align-items: center;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;

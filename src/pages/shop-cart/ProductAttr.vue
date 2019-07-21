@@ -10,13 +10,13 @@
                         <img :src="itemData.imgUrl">
                         <div
                             class="close-icon"
-                            @click="closeHander"
+                            @click="closeHandler"
                         ></div>
                         <div class="price-config">
                             <div class="goods-price">
                                 <i>￥</i>
-                                <span class="price">{{itemData.price}}</span>
-                                <i>{{item.priceDot}}</i>
+                                <span class="price">{{parseInt(itemData.price)}}</span>
+                                <i>.{{getPriceDot(itemData.price)}}</i>
                             </div>
                             <div class="config-detail">
                                 <i>已选</i>
@@ -73,7 +73,7 @@
                     </div>
                 </li>
             </ul>
-            <div class="btn">确认</div>
+            <div class="btn" @click="closeHandler">确认</div>
         </div>
     </div>
 </template>
@@ -82,8 +82,8 @@
 /* eslint-disable */
 export default {
     name: 'ProductAttr',
-    props:{
-        itemData:Object
+    props: {
+        itemData: Object
     },
     data () {
         return {
@@ -94,9 +94,6 @@ export default {
             default: false,
             ProductAttrs: [
                 {
-                    imgUrl: '//img14.360buyimg.com/n1/jfs/t27616/251/1425719819/224805/20c2401e/5bc831fdN61f8d9d2.jpg',
-                    price: '1248',
-                    priceDot: '.00',
                     weight: '0.425',
                     color: [
                         {
@@ -149,9 +146,12 @@ export default {
         }
     },
     methods: {
-        closeHander () {
+        closeHandler () {
             console.log('close')
             this.$emit('close');
+        },
+        getPriceDot (price) {
+            return parseFloat(price).toFixed(2).split('.')[1];
         },
         colorCheck (color) {
             return ['item', this.activeColorChecked === color.id ? 'checked' : '']

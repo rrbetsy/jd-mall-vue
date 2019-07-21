@@ -1,8 +1,16 @@
 <template>
     <div class="shop-cart">
         <AddressBar></AddressBar>
-        <ProductInfo></ProductInfo>
-        <SettlementBar></SettlementBar>
+        <ProductInfo
+            :totalPrice.sync="totalPrice"
+            :totalNum.sync="totalNum"
+            :selectAllItem="selectAllItem"
+        ></ProductInfo>
+        <SettlementBar
+            :totalPrice="totalPrice"
+            :totalNum="totalNum"
+            :selectAllItem.sync="selectAllItem"
+        ></SettlementBar>
     </div>
 </template>
 
@@ -18,7 +26,19 @@ export default {
         AddressBar,
         ProductInfo,
         SettlementBar
-    }
+    },
+    data: function () {
+        return {
+            totalPrice: 0,
+            totalNum: 0,
+            selectAllItem: false
+        }
+    },
+    // watch:{
+    //     selectAllItem:function(val){
+    //         debugger
+    //     }
+    // }
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
