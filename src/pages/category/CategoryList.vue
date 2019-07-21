@@ -73,7 +73,6 @@ export default {
                 animation: imgShow 0.3s ease-in-out;
                 // opacity: 1;
             }
-
             span {
                 color: #333;
                 height: 35px;
@@ -88,7 +87,4 @@ export default {
         }
     }
 }
-// .active-data {
-//     // display: block;
-// }
 </style>

@@ -13,7 +13,10 @@ import {
     Badge,
     Price,
     Countdown,
-    TextInput
+    TextInput,
+    Stepper,
+    ActionSheet,
+    Cell
 } from '@nutui/nutui'
 
 import Router from 'vue-router'
@@ -39,6 +42,9 @@ Tab.install(Vue)
 TabPanel.install(Vue)
 Tabbar.install(Vue)
 TextInput.install(Vue)
+Stepper.install(Vue)
+ActionSheet.install(Vue)
+Cell.install(Vue)
 
 export default new Router({
     routes: [

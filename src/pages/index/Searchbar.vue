@@ -1,11 +1,17 @@
 <template>
     <div :class="['searchbar',isInTop?'':'fixed']">
-        <div class="to-category" @click="toCategory">
+        <div
+            class="to-category"
+            @click="toCategory"
+        >
             <div class="line"></div>
         </div>
         <div class="search">
             <div class="search-text">JD</div>
-            <div class="search-icon" @click="clickHandle"></div>
+            <div
+                class="search-icon"
+                @click="clickHandle"
+            ></div>
             <input
                 placeholder="无线鼠标"
                 @click="clickHandle"
@@ -34,7 +40,7 @@ export default {
         clickHandle () {
 
         },
-        toCategory(){
+        toCategory () {
             location.hash = '#/category'
         }
     }
