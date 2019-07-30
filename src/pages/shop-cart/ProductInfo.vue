@@ -65,6 +65,7 @@
 import '../utils/css/reset.less'
 import axios from 'axios'
 import ProductAttr from './ProductAttr'
+// import {mymixin} from './mixin'
 export default {
     name: 'ProductInfo',
     components: {
@@ -86,28 +87,28 @@ export default {
             }
         }
     },
-    watch:{
-        selectAllItem:function(newVal){
+    watch: {
+        selectAllItem: function (newVal) {
             // 全选或者全部取消
-            console.log("selectAllItem==",newVal);
-            const newItems = this.productItems.map(function(item,index){
-                const {selected,selectNum} = item;
-                item.selectNum=selected==false&&selectNum==0?1:selectNum
+            // console.log("selectAllItem==", newVal);
+            const newItems = this.productItems.map(function (item, index) {
+                const { selected, selectNum } = item;
+                item.selectNum = selected == false && selectNum == 0 ? 1 : selectNum
                 item.selected = newVal
                 return item
             });
-            this.productItems=newItems;
+            this.productItems = newItems;
             this.calculator();
         }
     },
     methods: {
         selectItem (index) {
-            const {selected,selectNum} = this.productItems[index]
+            const { selected, selectNum } = this.productItems[index]
             const newItem = Object.assign({},
                 this.productItems[index],
                 {
                     selected: !selected,
-                    selectNum:selected==false&&selectNum==0?1:selectNum
+                    selectNum: selected == false && selectNum == 0 ? 1 : selectNum
                 });
             this.$set(this.productItems, index, newItem)
             this.calculator()
@@ -116,16 +117,13 @@ export default {
             const newItem = Object.assign({},
                 this.productItems[index],
                 {
-                    selected: val>=1
+                    selected: val >= 1
                 });
             this.$set(this.productItems, index, newItem)
             this.calculator()
         },
-        // selectItemsss () {
-        //     return this.selectedOrNot = !this.selectedOrNot;
-        // },
         switchActionSheet (key) {
-            console.log(key)
+            // console.log(key)
             this.$set(this.actionSheetShow, key, !this.actionSheetShow[`${key}`])
         },
         getPriceDot (price) {
@@ -137,7 +135,7 @@ export default {
         calculator () {
             let totalPrice = 0;
             let totalNum = 0;
-            //
+            //获取总价和总的数量
             this.productItems.forEach(function (item, index) {
                 if (item.selected === true) {
                     totalNum = parseInt(item.selectNum) + totalNum;
@@ -145,17 +143,17 @@ export default {
                 }
             }
             )
-            console.log("totalPrice==", totalPrice)
-            console.log("totalNum==", totalNum)
+            // console.log("totalPrice==", totalPrice)
+            // console.log("totalNum==", totalNum)
             this.$emit('update:totalPrice', totalPrice)
             this.$emit('update:totalNum', totalNum)
         }
     },
     async created () {
         try {
-            const {data} = await axios.get('http://localhost:3000/shop-cart/all');
+            const { data } = await axios.get('http://localhost:3000/shop-cart/all');
             // const {data} = await axios.get('http://localhost:3000/shop-cart/all');
-            if(data.code ===200){
+            if (data.code === 200) {
                 this.productItems = data.data;
             }
             console.log('cartData', data)
@@ -225,8 +223,8 @@ export default {
             width: 237px;
             height: 25px;
             line-height: 25px;
-            display: inline-flex;
-            align-items: center;
+            // display: inline-flex;
+            // align-items: center;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -235,7 +233,9 @@ export default {
             font-size: 14px;
             color: #666;
             margin: 8px 10px 10px 0;
-            padding: 1px 25px 1px 5px;
+            // padding: 1px 25px 1px 5px;
+            padding-right: 25px;
+            padding-left: 5px;
             border: 1px solid #e5e5e5;
             border-radius: 2px;
         }
