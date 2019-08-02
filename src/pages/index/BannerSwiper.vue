@@ -29,10 +29,10 @@
 export default {
     name: 'BannerSwiper',
     components: {},
-    mounted () {
-        setTimeout(() => {
-            this.$refs.demo4.updateEvent()
-        }, 300)    },
+    // mounted () {
+    //     setTimeout(() => {
+    //         this.$refs.demo4.updateEvent()
+    //     }, 300)    },
     data () {
         return {
             dataImgItem: [
